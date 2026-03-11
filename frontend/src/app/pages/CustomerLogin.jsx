@@ -8,11 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { toast } from 'sonner';
 import { ArrowLeft, Lock, Mail } from 'lucide-react';
 
-const DEMO_LOGIN = {
-  email: 'demo@vehicle.com',
-  password: 'demo123',
-};
-
 export default function CustomerLogin() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,11 +34,6 @@ export default function CustomerLogin() {
     setIsLoading(false);
   };
 
-  const useDemoCredentials = () => {
-    setEmail(DEMO_LOGIN.email);
-    setPassword(DEMO_LOGIN.password);
-  };
-
   return (
     <div className="min-h-screen mesh-bg flex items-center justify-center p-4">
       <div className="w-full max-w-5xl grid lg:grid-cols-2 gap-8 items-center">
@@ -67,15 +57,6 @@ export default function CustomerLogin() {
             <CardDescription>Log in to your account before booking an appointment</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="mb-4 rounded-md border border-blue-200 bg-blue-50 p-3 text-sm text-blue-900">
-              <p className="font-medium">Demo credentials</p>
-              <p>Email: {DEMO_LOGIN.email}</p>
-              <p>Password: {DEMO_LOGIN.password}</p>
-              <Button type="button" variant="outline" className="mt-2 h-8" onClick={useDemoCredentials}>
-                Use Demo Credentials
-              </Button>
-            </div>
-
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
