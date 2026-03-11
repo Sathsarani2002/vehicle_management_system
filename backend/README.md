@@ -40,3 +40,23 @@ API base URL: `http://localhost:5000/api`
 - `GET/POST/PUT/DELETE /api/services`
 - `GET/POST/PUT/PATCH/DELETE /api/bookings`
 - `GET/PUT/DELETE /api/customers` (admin only)
+
+## Deploy backend on Render
+
+Use the root `render.yaml` blueprint so Render reads these settings automatically.
+
+1. Push this repo to GitHub.
+2. In Render, choose **New +** -> **Blueprint** and connect your repo.
+3. Render creates the `vehicle-service-backend` web service from `render.yaml`.
+4. Set required environment variables in Render:
+	- `MONGODB_URI`
+	- `JWT_SECRET`
+	- `FRONTEND_URL` (your Vercel URL, for example `https://your-app.vercel.app`)
+5. Deploy and verify health endpoint:
+	- `https://<your-render-service>.onrender.com/api/health`
+
+Production API base URL format:
+
+```text
+https://<your-render-service>.onrender.com/api
+```
